@@ -50,10 +50,6 @@ function displayResult(apiData) {
   result.innerHTML = cards;
 }
 
-function queryString(page, limit) {
-  return "page=" + page + "&limit=" + limit;
-}
-
 window.addEventListener("load", () => {
     const lastString = localStorage.getItem("last");
     if (lastString) {
