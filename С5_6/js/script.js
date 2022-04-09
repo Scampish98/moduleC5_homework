@@ -20,7 +20,9 @@ btn.addEventListener("click", () => {
   let height = checkInputText(document.querySelector(".input-height").value);
 
   if (width && height) {
-    let url = `https://picsum.photos/${width}/${height}`;
-    result.innerHTML = `<img src="${url}" class="image"/>`;
+    fetch(`https://picsum.photos/${width}/${height}`)
+     .then((response) => {return response.url})
+     .then((url) => {result.innerHTML = `<img src="${url}" class="image"/>`})
+     .catch(() => {result.innerHTML = 'Произошла ошибка во время выполнения запроса'});
   }
 });
